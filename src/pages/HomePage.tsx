@@ -26,7 +26,7 @@ const HomePage = () => {
                 setIsLoading(false)
 
             }, 500)
-        })
+        }).catch(() => console.log('errror'))
 
     }, [])
 
