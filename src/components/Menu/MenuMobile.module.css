@@ -1,0 +1,32 @@
+
+.cover {
+    @apply fixed top-0 left-0 right-0 bottom-0 opacity-20 z-[12] bg-black transition-all duration-200 ;
+}
+
+.mobileMenuBox {
+    @apply fixed z-[12] top-0 bg-white overflow-y-auto overflow-x-hidden duration-[.400s] w-[320px] h-screen m-0 pt-[56px] px-0 pb-6 text-black
+}
+
+.menuHeader {
+    @apply absolute bg-orangeSelected top-0 left-0 right-0 flex items-center justify-between p-4 h-14
+}
+
+.closeButton {
+    @apply ml-auto
+}
+
+.level {
+    @apply flex transition-transform duration-200
+}
+
+.level > div {
+    min-width: calc(100%);
+    @apply flex flex-col
+}
+
+.item {
+    @apply text-[20px] border-b border-b-lightGray flex items-center px-[16px] py-[12px] justify-between w-full text-dark pr-4 hover:bg-orangeLight hover:text-orange duration-200
+}
+
+
+
