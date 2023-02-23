@@ -1,11 +1,9 @@
 import axios from "axios"
 import {AuthResponse} from "../models/response/AuthResponse";
-import {toast} from "react-toastify";
-import promise = toast.promise;
 
-export const API_URL = "https://react-cheese-server-production.up.railway.app"
-
-console.log('proccess.env.NODE-ENV: ', process.env.NODE_ENV)
+export const API_URL = process.env.NODE_ENV == 'development'
+    ? "http://localhost:5000"
+    : "https://react-cheese-server-production.up.railway.app"
 
 const $api = axios.create({
     withCredentials: true,
@@ -26,7 +24,7 @@ $api.interceptors.response.use((config) => {
     console.log(error)
     console.log(error.response)
     if (error.response.status == 401 && error.config && !error.config._isRetry) {
-        console.log('response status is ',error.response.status)
+        console.log('response status is ', error.response.status)
         originalRequest._isRetry = true
         try {
             const response = await axios.get<AuthResponse>(`${API_URL}/auth/refresh`, {withCredentials: true})
