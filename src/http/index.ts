@@ -5,7 +5,7 @@ import promise = toast.promise;
 
 export const API_URL = "https://react-cheese-server-production.up.railway.app"
 
-console.log('proccess.env.NODE-ENV', process.env.NODE_ENV)
+console.log('proccess.env.NODE-ENV: ', process.env.NODE_ENV)
 
 const $api = axios.create({
     withCredentials: true,
