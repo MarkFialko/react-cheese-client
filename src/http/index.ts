@@ -20,6 +20,7 @@ $api.interceptors.response.use((config) => {
 
     const originalRequest = error.config
     console.log(error)
+    console.log(error.response)
     if (error.response.status == 401 && error.config && !error.config._isRetry) {
         originalRequest._isRetry = true
         try {
