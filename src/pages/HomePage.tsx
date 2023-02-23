@@ -19,8 +19,9 @@ const HomePage = () => {
 
     useEffect(() => {
         const response = IngredientService.getAll()
-
+        console.log(response)
         response.then((data) => {
+            console.log(data)
             setProductItems(data.data.ingredients)
             setTimeout(() => {
                 setIsLoading(false)
