@@ -1,7 +1,11 @@
 import axios from "axios"
 import {AuthResponse} from "../models/response/AuthResponse";
+import {toast} from "react-toastify";
+import promise = toast.promise;
 
 export const API_URL = "https://react-cheese-server-production.up.railway.app"
+
+console.log('proccess.env.NODE-ENV', process.env.NODE_ENV)
 
 const $api = axios.create({
     withCredentials: true,
