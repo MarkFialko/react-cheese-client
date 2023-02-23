@@ -4,6 +4,7 @@ import CartMenu from "./CartMenu";
 
 const Cart = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
+    const a = "hello world"
     return (
         <div onClick={() => setIsOpen(!isOpen)}
              className={` relative cursor-pointer flex text-dark text-[14px] items-center gap-[15px]`}>
