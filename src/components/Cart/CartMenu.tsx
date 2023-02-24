@@ -25,11 +25,11 @@ const CartMenu: FC<CartMenuProps> = ({isOpen, price, count}) => {
         setBasketItems(basket)
     }, [basket])
 
-
     useEffect(()=> {
         if (!isAuth) {
             setBasketItems([])
         }
+        setBasketItems(basket)
     },[isAuth])
 
     const deleteHandler = (id:string) => {
@@ -37,7 +37,6 @@ const CartMenu: FC<CartMenuProps> = ({isOpen, price, count}) => {
             .then(() => {
                 toast('Товар успешно удалён!')
             })
-
     }
 
     return (

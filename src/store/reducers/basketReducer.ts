@@ -31,18 +31,18 @@ export type BasketActions =
 
 const defaultState: BasketState = {
     isLoading: false,
-    basket: {} as any,
+    basket: [] as any,
     error: ''
 }
 
 export const basketReducer = (state = defaultState, action: BasketActions): BasketState => {
     switch (action.type) {
         case BasketActionTypes.BASKET:
-            return {basket: {} as any, isLoading: true, error: ''}
+            return {basket: [] as any, isLoading: true, error: ''}
         case BasketActionTypes.BASKET_SUCCESS:
             return {isLoading: false, error: '', basket: action.payload}
         case BasketActionTypes.BASKET_ERROR:
-            return {basket: {} as any, isLoading: false, error: action.payload}
+            return {basket: [] as any, isLoading: false, error: action.payload}
         default:
             return state
     }
