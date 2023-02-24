@@ -14,7 +14,11 @@ root.render(
     <Provider store={store}>
         <BrowserRouter>
             <App/>
-            <ToastContainer transition={Bounce}/>
+            <ToastContainer
+                transition={Bounce}
+                autoClose={1500}
+                draggable={true}
+            />
         </BrowserRouter>
     </Provider>
 );

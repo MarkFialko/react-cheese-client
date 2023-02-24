@@ -2,26 +2,26 @@ import React, {useEffect, useState} from 'react';
 import SearchList from "../components/Search/SearchList";
 import ingredients from "../assets/ingredients.svg";
 import bowl from "../assets/bowl.svg";
-import ProductItem, {IProductItem} from "../components/Product/ProductItem";
+import ProductItem from "../components/Product/ProductItem";
 import {useMediaQuery} from "react-responsive";
 import Container from "../components/BuildComponents/Container";
 import {bowlFilter, ingredientFilter} from "../utils/constants";
 import IngredientService from "../service/IngredientService";
 import Button from "../components/UI/Button";
 import {Link} from "react-router-dom";
+import {IIngredient} from "../models/Ingredient";
 
 const HomePage = () => {
     const isTablet = useMediaQuery({query: "(max-width: 991px)"})
 
     const [isLoading, setIsLoading] = useState(true)
 
-    const [productItems, setProductItems] = useState<Array<IProductItem>>([])
+    const [productItems, setProductItems] = useState<Array<IIngredient>>([])
 
     useEffect(() => {
         const response = IngredientService.getAll()
-        console.log(response)
+
         response.then((data) => {
-            console.log(data)
             setProductItems(data.data.ingredients)
             setTimeout(() => {
                 setIsLoading(false)
@@ -44,7 +44,7 @@ const HomePage = () => {
                 <div
                     className={` w-full mdms:m-0 mdd:grid-cols-4  mdms:grid-cols-2 mdgridsmall:grid-cols-3 mdgrid:grid-cols-4  mdt:grid-cols-3 grid gap-[16px]`}>
                     {isLoading ?
-                        [...new Array(10)].map((i,index) => (
+                        [...new Array(8)].map((i,index) => (
                             <Link key={index} to={'#'}
                                   className={`p-[14px] cursor-pointer duration-[300ms] hover:shadow-md overflow-hidden rounded-[5px] animate-pulse bg-orangeSelected flex flex-col w-full max-w-[480px]`}>
                                 <div className={`w-full bg-orange animate-pulse rounded-[6px]  mx-auto h-[140px] mb-6`}/>

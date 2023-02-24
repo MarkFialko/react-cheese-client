@@ -3,11 +3,13 @@ import thunk, {ThunkDispatch} from "redux-thunk";
 import {authReducer} from "./reducers/authReducer";
 import {composeWithDevTools} from "redux-devtools-extension";
 import {userReducer} from "./reducers/userReducer";
+import {basketReducer} from "./reducers/basketReducer";
 
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    userInfo: userReducer
+    userInfo: userReducer,
+    basket: basketReducer
 })
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))

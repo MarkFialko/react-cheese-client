@@ -12,6 +12,7 @@ import ingredients from "../../assets/ingredients.svg";
 import bowl from "../../assets/bowl.svg";
 import BodyOverflowChanger from "../../utils/BodyOverflowChanger";
 import {bowlFilter, ingredientFilter} from "../../utils/constants";
+import {NavLink} from "react-router-dom";
 
 export interface IMenuItem {
     name: string,
@@ -74,7 +75,12 @@ const MenuMobile = ({menu}: { menu: Array<IMenuItem> }) => {
                                                                className={styles.item}>{m.name}
                                             <MdKeyboardArrowRight size={30} className='dark'/>
                                         </button>}
-                                        {m.link && <a href={m.link} className={styles.item}>{m.name}</a>}
+                                        {m.link &&
+                                            <NavLink
+                                                to={m.link}
+                                                className={`${styles.item}`}
+                                            >{m.name}</NavLink>
+                                        }
                                     </div>
                                 ))}
                             </div>

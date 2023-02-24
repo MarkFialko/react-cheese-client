@@ -6,6 +6,8 @@ import {Dispatch} from "redux";
 import axios from "axios";
 import {AuthResponse} from "../../models/response/AuthResponse";
 import {API_URL} from "../../http";
+import {BasketActions, BasketActionTypes} from "../reducers/basketReducer";
+import BasketService from "../../service/BasketService";
 
 export const registration = (data: RegistrationFormFields) => {
     const {fullName, email, password} = data
@@ -35,7 +37,7 @@ export const registration = (data: RegistrationFormFields) => {
 export const login = (data: LoginFormFields) => {
     const {email, password} = data
 
-    return async (dispatch: Dispatch<AuthAction>) => {
+    return async (dispatch: Dispatch<AuthAction | BasketActions>) => {
         try {
             dispatch({type: AuthActionTypes.LOGIN})
             const response = await AuthService.login(email, password);
@@ -44,6 +46,16 @@ export const login = (data: LoginFormFields) => {
 
 
             localStorage.setItem("token", response.data.accessToken)
+
+            try {
+                dispatch({type: BasketActionTypes.BASKET})
+                const response = await BasketService.getAll();
+
+                dispatch({type: BasketActionTypes.BASKET_SUCCESS, payload: response.data.basket})
+
+            } catch (e: any) {
+                dispatch({type: BasketActionTypes.BASKET_ERROR, payload: e.response.data.message})
+            }
 
             return Promise.resolve(response.data.user.fullName)
 
@@ -57,9 +69,10 @@ export const login = (data: LoginFormFields) => {
 
 export const logout = () => {
 
-    return async (dispatch: Dispatch<AuthAction>) => {
+    return async (dispatch: Dispatch<AuthAction | BasketActions>) => {
         dispatch({type: AuthActionTypes.LOGOUT})
         localStorage.removeItem("token")
+        dispatch({type: BasketActionTypes.BASKET_ERROR, payload: ''})
     }
 }
 

@@ -3,6 +3,7 @@ import AppRouter from "./components/AppRouter";
 import {useAppDispatch} from "./hooks/useAppDispatch";
 import {checkAuth} from "./store/actions/authAction";
 import {useNavigate} from "react-router-dom";
+import {getAll} from "./store/actions/basketAction";
 
 
 function App() {
@@ -12,15 +13,14 @@ function App() {
 
     useEffect(() => {
         if (localStorage.getItem("token")) {
-            console.log("token here")
             dispatch(checkAuth())
+            dispatch(getAll())
         }
         navigate('/')
     }, [])
 
     return (
         <AppRouter/>
-
     );
 }
 

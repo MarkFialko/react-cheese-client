@@ -1,13 +1,5 @@
 import {IMenuItem} from "../components/Menu/MenuMobile";
 import {ISearchItem} from "../components/Search/SearchList";
-import {IProductItem} from "../components/Product/ProductItem";
-import productOne from "../assets/product-1.png";
-import productTwo from "../assets/product-2.png";
-import productThree from "../assets/product-3.png";
-import productFour from "../assets/product-4.png";
-import productFive from "../assets/product-5.png";
-import productSix from "../assets/product-6.png";
-import productSeven from "../assets/product-7.png";
 import {IAchievement} from "../components/Achievment/Achievement";
 import delivery from "../assets/delivery.svg";
 import wallet from "../assets/wallet.svg";
@@ -16,15 +8,15 @@ import defender from "../assets/defender.svg";
 export const topNavItems: Array<IMenuItem> = [
     {
         name: "О компании",
-        link: "/"
+        link: "/about"
     },
     {
         name: "Преимущества",
-        link: "/"
+        link: "/advantages"
     },
     {
         name: "Акционные товары",
-        link: "/"
+        link: "/discount"
     }
 ]
 export const bottomNavItems: Array<IMenuItem> = [
@@ -33,125 +25,125 @@ export const bottomNavItems: Array<IMenuItem> = [
         children: [
             {
                 name: 'Молодые сыры',
-                link: "/"
+                link: "/recipes"
 
             },
             {
                 name: 'Полутвердые сыры',
-                link: '/',
+                link: '/1',
             },
             {
                 name: 'Паста Филата',
-                link: '/'
+                link: '/2'
             },
             {
                 name: 'Сывороточные сыры',
-                link: '/',
+                link: '/3',
 
             },
             {
                 name: 'Сыры с плесенью',
-                link: "/"
+                link: "/4"
             },
             {
                 name: 'Твердые сыры',
-                link: '/'
+                link: '/5'
             },
             {
                 name: 'Творожные сыры',
-                link: '/'
+                link: '/6'
             },
             {
                 name: 'Кисломолочные продукты',
-                link: '/'
+                link: '/7'
             },
             {
                 name: 'Все рецепты',
-                link: '/'
+                link: '/8'
             },
 
         ]
     },
     {
         name: "Доставка и оплата",
-        link: "/"
+        link: "/delivery"
     },
     {
         name: "Калькулятор Сыродела",
-        link: "/"
+        link: "/calculator"
     },
     {
         name: "Отзывы",
-        link: "/"
+        link: "/reviews"
     },
     {
         name: "Вопросы и ответы",
-        link: "/"
+        link: "/questions"
     },
     {
         name: "Контакты",
-        link: "/"
+        link: "/contacts"
     },
 ]
 export const ingredientFilter: Array<ISearchItem> = [
     {
         name: "Закваски для сыра",
-        link: "",
+        link: "/z",
     },
     {
         name: "Ферменты для сыра",
-        link: "",
+        link: "/za",
     },
     {
         name: "Хлористый кальций",
-        link: "",
+        link: "/zaz",
 
     },
     {
         name: "Плесень для сыра",
-        link: "",
+        link: "/zaza",
     },
     {
         name: "Кисломолочные закваски",
-        link: "",
+        link: "/zazaz",
         children: [
             {
                 name: "Мезофильная закваска Hansen Flora Danica (50U)",
-                link: "",
+                link: "/zazaza",
             },
         ]
     },
     {
         name: "Красители для сыра",
-        link: "",
+        link: "/zazazzz",
 
     },
     {
         name: "Специи для сыра",
-        link: "",
+        link: "/zzz",
     },
 ]
 export const bowlFilter: Array<ISearchItem> = [
     {
         name: "Формы для сыра",
-        link: "",
+        link: "/zzzzzz",
     },
     {
         name: "Латексное покрытие",
-        link: "",
+        link: "/q",
     },
     {
         name: "Воск для сыра",
-        link: "",
+        link: "/qq",
 
     },
     {
         name: "Дренажные коврики",
-        link: "",
+        link: "/qqq",
     },
     {
         name: "Дренажные контейнеры",
-        link: "",
+        link: "/hyju",
 
     },
 

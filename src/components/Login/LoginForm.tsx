@@ -3,7 +3,6 @@ import Button from "../UI/Button";
 import {useForm} from "react-hook-form";
 import {useAppDispatch} from "../../hooks/useAppDispatch";
 import {login} from "../../store/actions/authAction";
-import {toast} from "react-toastify";
 import {useAppSelector} from "../../hooks/useAppSelector";
 import {useNavigate} from "react-router-dom";
 import FormInput from "../UI/FormComponents/FormInput";
@@ -17,7 +16,7 @@ export type LoginFormFields = {
 
 const LoginForm = () => {
 
-    const {isAuth} = useAppSelector(state => state.auth)
+    const {isAuth, isLoading} = useAppSelector(state => state.auth)
 
     const navigate = useNavigate()
 
@@ -41,7 +40,7 @@ const LoginForm = () => {
     }
 
     const loginHandler = (data: LoginFormFields) => {
-        if (!isAuth) {
+        if (!isAuth && !isLoading) {
             const response = dispatch(login(data))
 
             response.then(() => navigate('/profile'))
@@ -72,7 +71,8 @@ const LoginForm = () => {
                     label={'Ваш пароль'}
                     placeholder={"От 5 и более символов"}
                 />
-                <Button type='submit' classes={`mt-[10px]`}>Войти</Button>
+                <Button type='submit' disabled={isLoading}
+                        classes={`${isLoading ? 'animate-pulse' : ''} mt-[10px]`}>Войти</Button>
             </Form>
         </>
     );

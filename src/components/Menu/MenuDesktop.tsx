@@ -1,7 +1,8 @@
-import React, {FC, useState} from 'react';
+import React, {CSSProperties, FC, useRef, useState} from 'react';
 import {IMenuItem} from "./MenuMobile";
 import {MdKeyboardArrowDown} from "react-icons/md";
 import SubMenu from "./SubMenu";
+import {NavLink} from "react-router-dom";
 
 type MenuDesktopProps = {
     menu: Array<IMenuItem>
@@ -21,8 +22,10 @@ const MenuDesktop: FC<MenuDesktopProps> = ({menu}) => {
             <ul className={`flex z-10 items-center gap-3 text-[14px] text-dark`}>
                 {menu.map(menuItem => (
                     <li className={` group relative`} key={menuItem.name}>
-                        {menuItem.link && <a className={`group-hover:text-orange duration-500`}
-                                             href={menuItem.link}>{menuItem.name}</a>}
+                        {menuItem.link &&
+                            <NavLink
+                                className={ ({isActive}) => `${isActive ? 'text-orange' : ''} group-hover:text-orange duration-500`}
+                                             to={menuItem.link}>{menuItem.name}</NavLink>}
                         {menuItem.children &&
                             <button onClick={() => toggleMenu(menuItem.name)}
                                     className={`flex items-center gap-[3px] group-hover:text-orange`}><p
@@ -33,7 +36,7 @@ const MenuDesktop: FC<MenuDesktopProps> = ({menu}) => {
                             </button>
                         }
                         {menuItem.children &&
-                            <SubMenu opened={openedMenu} styles="top-full shadow-md mt-2 left-[1px]"
+                            <SubMenu  opened={openedMenu} styles="top-full shadow-md mt-2 left-[1px]"
                                      name={menuItem.name}
                                      subMenu={menuItem.children}/>
                         }

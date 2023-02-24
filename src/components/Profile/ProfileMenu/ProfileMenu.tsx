@@ -24,7 +24,7 @@ const ProfileMenu = () => {
             : <div
                 ref={profileMenuRef}
                 onClick={toggleProfileMenu}
-                className={`flex relative cursor-pointer hover:text-orange duration-200 items-center gap-[5px]`}>
+                className={`flex relative cursor-pointer hover:text-orange items-center gap-[5px]`}>
                 <img
                     className={`mdt:h-[18px] mdt:w-[18px] w-7 h-7`}
                     src={user}
